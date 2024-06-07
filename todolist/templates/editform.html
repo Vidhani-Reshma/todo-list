@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <style>
+      .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #141e30, #243b55);
+        margin: 0;
+        padding: 0;
+    }
+    
+    .card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        width: 150%;
+    }
+    
+    .card-body {
+        padding: 40px;
+    }
+    
+    .card-title {
+        margin-bottom: 30px;
+        color: #333;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        box-sizing: border-box;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        background-color: #45a049;
+    }
+  </style>
+</head>    
+
+<body>
+<section class="section">
+    <div class="row">
+      <div class="col-lg-6">
+
+        <div class="card">
+          <div class="card-body">
+            <center><h3 class="card-title">Update Form Elements</h3></center>
+
+            <!-- General Form Elements -->
+            <form method="post" action="/todolistapp/updatenote/{{data.id}}/">
+              {% csrf_token %}
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="title" value={{data.title}}>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" name="date" value={{data.date}}>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="desc" value={{data.desc}}>
+                </div>
+              </div>
+              
+              
+              <div class="row mb-3">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Note</button>
+                </div>
+              </div>
+
+            </form><!-- End General Form Elements -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>
